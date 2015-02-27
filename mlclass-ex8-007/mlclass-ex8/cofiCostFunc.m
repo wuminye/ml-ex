@@ -44,12 +44,12 @@ res = X*Theta' - Y;
 tmp = res(logical(R)).^2;
 J = 0.5* sum(tmp(:));
 
+J = J + lambda/2*sum(Theta(:).^2) + lambda/2*sum(X(:).^2);
 
 
+X_grad = (res.*R*Theta) + lambda*X;
 
-X_grad = (res.*R*Theta);
-
-Theta_grad = (X'*(res.*R))';
+Theta_grad = (X'*(res.*R))' + lambda*Theta;
 
 
 

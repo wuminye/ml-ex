@@ -205,6 +205,11 @@ X = reshape(theta(1:num_movies*num_features), num_movies, num_features);
 Theta = reshape(theta(num_movies*num_features+1:end), ...
                 num_users, num_features);
 
+figure;
+imagesc(X*Theta'.*R);
+ylabel('Movies');
+xlabel('Users');            
+            
 fprintf('Recommender system learning completed.\n');
 
 fprintf('\nProgram paused. Press enter to continue.\n');
